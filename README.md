@@ -1,3 +1,9 @@
+# Licenca
+Ovaj repozitorijum je fork originalnog [https://learnopengl.com](https://github.com/JoeyDeVries/LearnOpenGL) autora [Joey De Vries](https://joeydevries.com/#home)
+i kao takav spada pod [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) licencu.
+Ako nije drugačije naglašeno svi primeri su originalni. Na početku svakog fajla koji nije deo originalnog repozitorijuma je naglašeno 
+da je dodat.
+
 # learnopengl.com code repository
 Contains code samples for all chapters of Learn OpenGL and [https://learnopengl.com](https://learnopengl.com). 
 
