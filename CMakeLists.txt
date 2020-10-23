@@ -79,6 +79,11 @@ set(1.getting_started
     2.3.hello_triangle_exercise1
     2.4.hello_triangle_exercise2
     2.5.hello_triangle_exercise3
+# Begin added in matf fork
+    2.6.hello_window_events
+    2.7.hello_triangle_indexed_extra_attrib
+    2.8.hello_triangle_extra_attrib
+# end added in matf fork
     3.1.shaders_uniform
     3.2.shaders_interpolation
     3.3.shaders_class
