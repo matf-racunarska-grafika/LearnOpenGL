@@ -35,7 +35,7 @@
         return "THIS_SHOULD_NEVER_HAPPEN";
     }
     bool wasPreviousOpenGLCallSuccessful(const char* file, int line, const char* call) {
-        bool success = false;
+        bool success = true;
         while (GLenum error = glGetError()) {
             std::cerr << "[OpenGL error] " << error << " " << openGLErrorToString(error)
             << "\nFile: " << file
