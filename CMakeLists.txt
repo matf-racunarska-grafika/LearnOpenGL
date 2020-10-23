@@ -83,6 +83,7 @@ set(1.getting_started
     2.6.hello_window_events
     2.7.hello_triangle_indexed_extra_attrib
     2.8.hello_triangle_extra_attrib
+        2.9.hello_triangle_glcall_error
 # end added in matf fork
     3.1.shaders_uniform
     3.2.shaders_interpolation
