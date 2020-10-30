@@ -8,15 +8,17 @@
 #include <iostream>
 #include <glad/glad.h>
 
-    void clearAllOpenGlErrors();
-    const char* openGLErrorToString(GLenum error);
-    bool wasPreviousOpenGLCallSuccessful(const char* file, int line, const char* call);
+#define BREAK_IF_FALSE(x) if (!(x)) __builtin_trap()
+#define ASSERT(x, msg) do { if (!(x)) { std::cerr << msg << '\n'; BREAK_IF_FALSE(false); } } while(0)
+#define GLCALL(x) \
+do{ rg::clearAllOpenGlErrors(); x; BREAK_IF_FALSE(rg::wasPreviousOpenGLCallSuccessful(__FILE__, __LINE__, #x)); } while (0)
 
-    #define BREAK_IF_FALSE(x) if (!(x)) __builtin_trap()
-    #define ASSERT(x, msg) do { std::cerr << msg << '\n'; BREAK_IF_FALSE(false); } while(0)
-    #define GLCALL(x) clearAllOpenGlErrors(); x; BREAK_IF_FALSE(wasPreviousOpenGLCallSuccessful(__FILE__, __LINE__, #x));
+namespace rg {
 
-
+    
+void clearAllOpenGlErrors();
+const char* openGLErrorToString(GLenum error);
+bool wasPreviousOpenGLCallSuccessful(const char* file, int line, const char* call);
 
     void clearAllOpenGlErrors() {
         while (glGetError() != GL_NO_ERROR) {
@@ -47,5 +49,5 @@
         return success;
     }
 
-
+};
 #endif //PROJECT_BASE_ERROR_H

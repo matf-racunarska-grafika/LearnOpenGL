@@ -44,6 +44,7 @@ function(watch)
 endfunction()
 
 
+set(OpenGL_GL_PREFERENCE GLVND)
 if(WIN32)
   set(LIBS glfw3 opengl32 assimp freetype irrKlang)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
@@ -92,11 +93,12 @@ set(1.getting_started
     2.6.hello_window_events
     2.7.hello_triangle_indexed_extra_attrib
     2.8.hello_triangle_extra_attrib
-        2.9.hello_triangle_glcall_error
+    2.9.hello_triangle_glcall_error
 # end added in matf fork
     3.1.shaders_uniform
     3.2.shaders_interpolation
     3.3.shaders_class
+    3.7.shaders_position_color_texture_uniform_mix
     4.1.textures
     4.2.textures_combined
     4.4.textures_exercise2
