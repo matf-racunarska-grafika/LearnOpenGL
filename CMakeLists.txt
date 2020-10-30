@@ -98,12 +98,12 @@ set(1.getting_started
     3.1.shaders_uniform
     3.2.shaders_interpolation
     3.3.shaders_class
-    3.7.shaders_position_color_texture_uniform_mix
     4.1.textures
     4.2.textures_combined
     4.4.textures_exercise2
     4.5.textures_exercise3
     4.6.textures_exercise4
+    4.7.shaders_position_color_texture_uniform_mix
     5.1.transformations
     5.2.transformations_exercise2
     6.1.coordinate_systems

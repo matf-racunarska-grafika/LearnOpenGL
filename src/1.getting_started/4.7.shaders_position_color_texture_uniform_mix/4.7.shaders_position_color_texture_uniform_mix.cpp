@@ -52,8 +52,8 @@ int main()
         return -1;
     }
 
-    Shader shader("3.7.vertexShader.vs",
-                  "3.7.fragmentShader.fs");
+    Shader shader("4.7.vertexShader.vs",
+                  "4.7.fragmentShader.fs");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
