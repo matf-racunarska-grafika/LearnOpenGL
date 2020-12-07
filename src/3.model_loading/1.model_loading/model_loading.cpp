@@ -31,6 +31,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
+
 int main()
 {
     // glfw: initialize and configure
@@ -83,6 +84,7 @@ int main()
     // load models
     // -----------
     Model ourModel(FileSystem::getPath("resources/objects/backpack/backpack.obj"));
+
 
     
     // draw in wireframe

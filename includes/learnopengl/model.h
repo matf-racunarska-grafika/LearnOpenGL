@@ -44,7 +44,12 @@ public:
         for(unsigned int i = 0; i < meshes.size(); i++)
             meshes[i].Draw(shader);
     }
-    
+
+    void SetShaderTextureNamePrefix(std::string prefix) {
+        for (Mesh& mesh: meshes) {
+            mesh.glslIdentifierPrefix = prefix;
+        }
+    }
 private:
     // loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.
     void loadModel(string const &path)
@@ -133,6 +138,8 @@ private:
                 vertex.TexCoords = glm::vec2(0.0f, 0.0f);
 
             vertices.push_back(vertex);
+
+
         }
         // now wak through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
         for(unsigned int i = 0; i < mesh->mNumFaces; i++)
@@ -150,6 +157,9 @@ private:
         // diffuse: texture_diffuseN
         // specular: texture_specularN
         // normal: texture_normalN
+        aiColor3D color(0.0f, 0.0f, 0.0f);
+        material->Get(AI_MATKEY_COLOR_AMBIENT, color);
+
 
         // 1. diffuse maps
         vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
@@ -163,7 +173,9 @@ private:
         // 4. height maps
         std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
         textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
-        
+
+
+
         // return a mesh object created from the extracted mesh data
         return Mesh(vertices, indices, textures);
     }
