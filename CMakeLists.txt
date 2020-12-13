@@ -142,10 +142,13 @@ set(4.advanced_opengl
     2.stencil_testing
     3.1.blending_discard
     3.2.blending_sort
+    4.1.face_culling_example
+    4.2.face_culling_cubes
     5.1.framebuffers
     5.2.framebuffers_exercise1
     6.1.cubemaps_skybox
     6.2.cubemaps_environment_mapping
+    7.1.advanced_glsl_gl_pointsize
     8.advanced_glsl_ubo
     9.1.geometry_shader_houses
     9.2.geometry_shader_exploding
