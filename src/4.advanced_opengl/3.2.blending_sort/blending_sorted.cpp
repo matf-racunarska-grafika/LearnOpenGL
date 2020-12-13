@@ -220,13 +220,12 @@ int main()
 
         // sort the transparent windows before rendering
         // ---------------------------------------------
-        std::map<float, glm::vec3> sorted;
-        for (unsigned int i = 0; i < windows.size(); i++)
-        {
-            float distance = glm::length(camera.Position - windows[i]);
-            sorted[distance] = windows[i];
-        }
-
+        std::sort(windows.begin(), windows.end(),
+                  [cameraPosition = camera.Position](const glm::vec3& a, const glm::vec3& b) {
+                        float d1 = glm::distance(a, cameraPosition);
+                        float d2 = glm::distance(b, cameraPosition);
+                        return d1 > d2;
+        });
         // render
         // ------
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -259,10 +258,10 @@ int main()
         // windows (from furthest to nearest)
         glBindVertexArray(transparentVAO);
         glBindTexture(GL_TEXTURE_2D, transparentTexture);
-        for (std::map<float, glm::vec3>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
+        for (const glm::vec3& w : windows)
         {
             model = glm::mat4(1.0f);
-            model = glm::translate(model, it->second);
+            model = glm::translate(model, w);
             shader.setMat4("model", model);
             glDrawArrays(GL_TRIANGLES, 0, 6);
         }
