@@ -12,6 +12,7 @@ const unsigned int SCR_HEIGHT = 600;
 
 int main()
 {
+    // Moj prvi komentar!
     // glfw: initialize and configure
     // ------------------------------
     glfwInit();
