@@ -14,7 +14,7 @@ struct DirLight {
     vec3 diffuse;
     vec3 specular;
 };
-std::string glslIdentifierPrefix;
+
 struct PointLight {
     vec3 position;
     
