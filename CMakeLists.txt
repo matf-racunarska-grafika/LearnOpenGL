@@ -41,6 +41,10 @@ endfunction()
 set(OpenGL_GL_PREFERENCE GLVND)
 if(WIN32)
   set(LIBS glfw3 opengl32 assimp freetype irrKlang)
+    if(MSVC)
+        add_compile_options(/W0 /wd9002)
+        add_link_options(/wd9002)
+    endif()
 elseif(UNIX AND NOT APPLE)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
   find_package(OpenGL REQUIRED)
@@ -209,6 +213,7 @@ endmacro()
 
 # then create a project file per tutorial
 foreach(CHAPTER ${CHAPTERS})
+
     foreach(DEMO ${${CHAPTER}})
         file(GLOB SOURCE
             "src/${CHAPTER}/${DEMO}/*.h"
@@ -223,6 +228,7 @@ foreach(CHAPTER ${CHAPTERS})
         if(WIN32)
             set_target_properties(${NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${CHAPTER}")
             set_target_properties(${NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${CHAPTER}/Debug")
+            file(COPY ${CMAKE_SOURCE_DIR}/dlls/assimp-vc140-mt.dll DESTINATION ${CMAKE_SOURCE_DIR}/bin/${CHAPTER})
         elseif(UNIX AND NOT APPLE)
             set_target_properties(${NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${CHAPTER}")
         elseif(APPLE)
@@ -237,6 +243,7 @@ foreach(CHAPTER ${CHAPTERS})
                  "src/${CHAPTER}/${DEMO}/*.fs"
                  "src/${CHAPTER}/${DEMO}/*.gs"
         )
+
         foreach(SHADER ${SHADERS})
             watch(${SHADER})
             if(WIN32)
