@@ -15,23 +15,31 @@ Keep in mind the supplied libraries were generated with a specific compiler vers
 
 ## Linux building
 First make sure you have CMake, Git, and GCC by typing as root (sudo) `apt-get install g++ cmake git` and then get the required packages:
-Using root (sudo) and type `apt-get install libsoil-dev libglm-dev libassimp-dev libglew-dev libglfw3-dev libxinerama-dev libxcursor-dev  libxi-dev libfreetype-dev libgl1-mesa-dev xorg-dev` .
+Using root (sudo) and type `apt-get install libsoil-dev libglm-dev libassimp-dev libglew-dev libglfw3-dev libxinerama-dev libxcursor-dev  libxi-dev` .
 
-**Build through CMake-gui:** The source directory is LearnOpenGL and specify the build directory as LearnOpenGL/build. Creating the build directory within LearnOpenGL is important for linking to the resource files (it also will be ignored by Git). Hit configure and specify your compiler files (Unix Makefiles are recommended), resolve any missing directories or libraries, and then hit generate. Navigate to the build directory (`cd LearnOpenGL/build`) and type `make` in the terminal. This should generate the executables in the respective chapter folders.
+### Building from Terminal
 
-**Build through Cmake command line:**
+To build the project, use the following commands:
+
+```bash
+cmake -S . -B build
+cmake --build build --parallel
 ```
-cd /path/to/LearnOpenGL
-mkdir build && cd build
-cmake ..
-cmake --build .
+
+After building, the executables are located in the `bin/` directory, organized by chapter. For example, to run the "Hello Window" example:
+
+```bash
+cd bin/1.getting_started/
+./1.getting_started__1.1.hello_window
 ```
 
-Note that CodeBlocks or other IDEs may have issues running the programs due to problems finding the shader and resource files, however it should still be able to generate the executables. To work around this problem it is possible to set an environment variable to tell the tutorials where the resource files can be found. The environment variable is named LOGL_ROOT_PATH and may be set to the path to the root of the LearnOpenGL directory tree. For example:
+Always run the executable from the directory where it is located.
 
-    `export LOGL_ROOT_PATH=/home/user/tutorials/LearnOpenGL`
+### Troubleshooting Resources
 
-Running `ls $LOGL_ROOT_PATH` should list, among other things, this README file and the resources directory.
+If you encounter issues with missing resources (shaders, textures), ensure that the `LOGL_ROOT_PATH` environment variable is set correctly, although the default configuration should handle this automatically using the project root.
+
+    `export LOGL_ROOT_PATH=/path/to/LearnOpenGL`
 
 ## Mac OS X building
 Building on Mac OS X is fairly simple:
