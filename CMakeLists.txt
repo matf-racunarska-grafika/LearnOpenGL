@@ -149,7 +149,11 @@ set(4.advanced_opengl
     6.1.cubemaps_skybox
     6.2.cubemaps_environment_mapping
     7.1.advanced_glsl_gl_pointsize
+    7.2.advanced_glsl_gl_fragcoord
+    7.3.advanced_glsl_gl_frontfacing
+    7.4.advanced_glsl_interface_blocks
     8.advanced_glsl_ubo
+    9.0.geometry_shader_lines
     9.1.geometry_shader_houses
     9.2.geometry_shader_exploding
     9.3.geometry_shader_normals
