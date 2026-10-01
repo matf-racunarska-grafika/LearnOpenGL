@@ -118,7 +118,7 @@ git clone https://github.com/<your-username>/LearnOpenGL.git
 cd LearnOpenGL
 ```
 
-Optionally, add the course repository as `upstream` so you can pull in updates from the instructors:
+Optionally, add the course repository as `upstream` so you can pull in updates from the instructor:
 
 ```bash
 git remote add upstream https://github.com/matf-racunarska-grafika/LearnOpenGL.git
